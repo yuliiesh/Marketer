@@ -1,0 +1,14 @@
+﻿services:
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    restart: always
+    ports:
+      - "1433:1433"
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "root"
+    volumes:
+      - ms-sql-volume:/var/opt/mssql
+
+volumes:
+  ms-sql-volume:
