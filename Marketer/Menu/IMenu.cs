@@ -2,5 +2,7 @@
 
 public interface IMenu
 {
-    void Display();
+    Task Display();
+
+    Func<bool> LogoutPressed { get; set; }
 }

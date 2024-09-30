@@ -33,17 +33,37 @@ namespace Marketer.Migrations
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Customers");
+                    b.ToTable("Customers", (string)null);
+                });
+
+            modelBuilder.Entity("Marketer.Data.Models.DiscountModel", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CustomerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Discount")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CustomerId")
+                        .IsUnique();
+
+                    b.ToTable("Discounts", (string)null);
                 });
 
             modelBuilder.Entity("Marketer.Data.Models.OrderModel", b =>
@@ -65,7 +85,7 @@ namespace Marketer.Migrations
 
                     b.HasIndex("CustomerModelId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Orders", (string)null);
                 });
 
             modelBuilder.Entity("Marketer.Data.Models.ProductModel", b =>
@@ -89,7 +109,7 @@ namespace Marketer.Migrations
 
                     b.HasIndex("OrderModelId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("Marketer.Data.Models.UserModel", b =>
@@ -99,6 +119,7 @@ namespace Marketer.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Password")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserName")
@@ -108,7 +129,18 @@ namespace Marketer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
+                });
+
+            modelBuilder.Entity("Marketer.Data.Models.DiscountModel", b =>
+                {
+                    b.HasOne("Marketer.Data.Models.CustomerModel", "Customer")
+                        .WithMany()
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Customer");
                 });
 
             modelBuilder.Entity("Marketer.Data.Models.OrderModel", b =>

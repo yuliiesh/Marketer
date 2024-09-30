@@ -2,52 +2,117 @@
 
 public class Menu : IMenu
 {
-    private readonly IReadOnlyList<MenuItem> _items;
+    private readonly Stack<IReadOnlyList<MenuItem>> _menuStack = new(2);
 
-    public Menu(IReadOnlyList<MenuItem> items)
-    {
-        _items = items;
-    }
+    private int _currentSelection;
 
-    public void Display()
-    {
-        Console.WriteLine("Welcome to Product Company!");
-        ShowItems(_items);
-        HandleUserInput();
-    }
+    public Func<bool> LogoutPressed { get; set; }
 
-    private void ShowItems(IEnumerable<MenuItem> items)
+    public Menu(IReadOnlyList<MenuItem> mainMenuItems)
     {
-        int i = 1;
-        foreach (var item in items)
+        if (mainMenuItems is null ||  !mainMenuItems.Any())
         {
-            Console.WriteLine($"{i++}. {item.Text}");
+            throw new ArgumentException("Main menu items cannot be null or empty.");
+        }
+
+        _menuStack.Push(mainMenuItems);
+    }
+
+    public async Task Display()
+    {
+        ConsoleKeyInfo keyInfo;
+        do
+        {
+            if (LogoutPressed is not null && LogoutPressed())
+            {
+                LogoutPressed = null;
+                _currentSelection = 0;
+                break;
+            }
+
+            RenderMenu();
+
+            keyInfo = Console.ReadKey(true);
+            await HandleInput(keyInfo);
+        } while (keyInfo.Key != ConsoleKey.Escape || _menuStack.Count >= 1);
+    }
+
+    private async Task HandleInput(ConsoleKeyInfo keyInfo)
+    {
+        switch (keyInfo.Key)
+        {
+            case ConsoleKey.UpArrow:
+                _currentSelection = (_currentSelection == 0) ? GetCurrentMenuItems().Count - 1 : _currentSelection - 1;
+                break;
+            case ConsoleKey.DownArrow:
+                _currentSelection = (_currentSelection + 1) % GetCurrentMenuItems().Count;
+                break;
+            case ConsoleKey.Enter:
+                await ExecuteCurrentSelection();
+                break;
+            case ConsoleKey.Escape:
+                ExitSubMenu();
+                break;
         }
     }
 
-    private void HandleUserInput()
+    private async Task ExecuteCurrentSelection()
     {
-        Console.WriteLine("Enter Number: ");
-        string userInput = Console.ReadLine();
-        int input;
-        while (!(int.TryParse(userInput, out input) && input >= 0 && input <= _items.Count))
+        var selectedItem = GetCurrentMenuItems()[_currentSelection];
+        if (selectedItem?.SubItems?.Count > 0)
         {
-            Console.WriteLine("You pick the wrong number. Try again.: ");
-            userInput = Console.ReadLine();
+            EnterSubMenu(selectedItem.SubItems);
+        }
+        else
+        {
+            await selectedItem?.Execute();
+        }
+    }
+
+    private void EnterSubMenu(IReadOnlyList<MenuItem> subItems)
+    {
+        if (subItems is null || !subItems.Any())
+        {
+            return;
         }
 
-        _items[input-1].Execute();
+        _menuStack.Push(subItems);
+        _currentSelection = 0;
     }
-}
 
-public class MenuItem
-{
-    public required string Text { get; set; }
-    public required Action Action { get; set; }
-    public IReadOnlyCollection<MenuItem> SubItems { get; set; }
-
-    public void Execute()
+    private void ExitSubMenu()
     {
-        Action();
+        if (_menuStack.Count <= 1)
+        {
+            return;
+        }
+
+        _menuStack.Pop();
+        _currentSelection = 0;
+    }
+
+    private IReadOnlyList<MenuItem> GetCurrentMenuItems() => _menuStack.Peek();
+
+    private void RenderMenu()
+    {
+        Console.Clear();
+        var menuItems = GetCurrentMenuItems();
+
+        for (var i = 0; i < menuItems.Count; i++)
+        {
+            if (i == _currentSelection)
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.BackgroundColor = ConsoleColor.DarkBlue;
+            }
+            else
+            {
+                Console.ResetColor();
+            }
+
+            Console.WriteLine(menuItems[i].Title);
+        }
+
+        Console.ResetColor();
     }
 }

@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "kMKJ07b0ttA=",
+  "dgSpecHash": "qK/9oAc4VDc=",
   "success": true,
   "projectFilePath": "C:\\Users\\Taras Sharko\\Desktop\\ProjectsSoftware\\Marketer\\Marketer.Test\\Marketer.Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Taras Sharko\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Taras Sharko\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\Taras Sharko\\.nuget\\packages\\bogus\\35.6.1\\bogus.35.6.1.nupkg.sha512",
     "C:\\Users\\Taras Sharko\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
     "C:\\Users\\Taras Sharko\\.nuget\\packages\\fluentassertions\\6.12.1\\fluentassertions.6.12.1.nupkg.sha512",
     "C:\\Users\\Taras Sharko\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",

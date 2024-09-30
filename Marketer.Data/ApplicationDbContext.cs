@@ -5,7 +5,8 @@ namespace Marketer.Data;
 
 public class ApplicationDbContext : DbContext
 {
-    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        : base(options)
     {
     }
 
@@ -13,6 +14,7 @@ public class ApplicationDbContext : DbContext
     public DbSet<OrderModel> Orders { get; set; }
     public DbSet<CustomerModel> Customers { get; set; }
     public DbSet<ProductModel> Products { get; set; }
+    public DbSet<DiscountModel> Discounts { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -20,6 +22,23 @@ public class ApplicationDbContext : DbContext
         ConfigureCustomerModel(modelBuilder);
         ConfigureProductModel(modelBuilder);
         ConfigureOrderModel(modelBuilder);
+        ConfigureDiscountModel(modelBuilder);
+    }
+
+    private static void ConfigureDiscountModel(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<DiscountModel>()
+            .HasKey(discount => discount.Id);
+        modelBuilder.Entity<DiscountModel>()
+            .HasOne(d => d.Customer)
+            .WithMany()
+            .HasForeignKey(d => d.CustomerId)
+            .IsRequired()
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<DiscountModel>()
+            .HasIndex(d => d.CustomerId)
+            .IsUnique();
     }
 
     private static void ConfigureOrderModel(ModelBuilder modelBuilder)
@@ -56,11 +75,11 @@ public class ApplicationDbContext : DbContext
         modelBuilder.Entity<CustomerModel>()
             .Property(user => user.FirstName)
             .IsRequired()
-            .HasMaxLength(10);
+            .HasMaxLength(50);
         modelBuilder.Entity<CustomerModel>()
             .Property(user => user.LastName)
             .IsRequired()
-            .HasMaxLength(10);
+            .HasMaxLength(50);
         modelBuilder.Entity<CustomerModel>()
             .Property(user => user.Age)
             .IsRequired();

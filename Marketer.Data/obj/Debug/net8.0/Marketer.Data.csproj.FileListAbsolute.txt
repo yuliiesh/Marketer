@@ -10,3 +10,4 @@ C:\Users\Taras Sharko\Desktop\ProjectsSoftware\Marketer\Marketer.Data\obj\Debug\
 C:\Users\Taras Sharko\Desktop\ProjectsSoftware\Marketer\Marketer.Data\obj\Debug\net8.0\refint\Marketer.Data.dll
 C:\Users\Taras Sharko\Desktop\ProjectsSoftware\Marketer\Marketer.Data\obj\Debug\net8.0\Marketer.Data.pdb
 C:\Users\Taras Sharko\Desktop\ProjectsSoftware\Marketer\Marketer.Data\obj\Debug\net8.0\ref\Marketer.Data.dll
+C:\Users\Taras Sharko\Desktop\ProjectsSoftware\Marketer\Marketer.Data\obj\Debug\net8.0\Marketer.Data.sourcelink.json

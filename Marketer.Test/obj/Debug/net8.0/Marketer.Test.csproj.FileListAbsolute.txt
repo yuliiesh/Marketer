@@ -153,3 +153,5 @@ C:\Users\Taras Sharko\Desktop\ProjectsSoftware\Marketer\Marketer.Test\obj\Debug\
 C:\Users\Taras Sharko\Desktop\ProjectsSoftware\Marketer\Marketer.Test\obj\Debug\net8.0\Marketer.Test.genruntimeconfig.cache
 C:\Users\Taras Sharko\Desktop\ProjectsSoftware\Marketer\Marketer.Test\obj\Debug\net8.0\ref\Marketer.Test.dll
 C:\Users\Taras Sharko\Desktop\ProjectsSoftware\Marketer\Marketer.Test\bin\Debug\net8.0\FluentAssertions.dll
+C:\Users\Taras Sharko\Desktop\ProjectsSoftware\Marketer\Marketer.Test\obj\Debug\net8.0\Marketer.Test.sourcelink.json
+C:\Users\Taras Sharko\Desktop\ProjectsSoftware\Marketer\Marketer.Test\bin\Debug\net8.0\Bogus.dll

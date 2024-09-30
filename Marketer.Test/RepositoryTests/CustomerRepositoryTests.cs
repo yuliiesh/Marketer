@@ -3,9 +3,8 @@ using Marketer.Data.Models;
 using Marketer.Repositories;
 using Marketer.Repositories.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.VisualStudio.TestPlatform.Utilities;
 
-namespace Marketer.Test;
+namespace Marketer.Test.RepositoryTests;
 
 public class CustomerRepositoryTests : TestBase
 {
@@ -13,10 +12,8 @@ public class CustomerRepositoryTests : TestBase
 
     public CustomerRepositoryTests()
     {
-        var serviceCollection = new ServiceCollection();
-        serviceCollection.AddSingleton(_ => _context);
-        serviceCollection.AddSingleton<ICustomerRepository, CustomerRepository>();
-        _serviceProvider = serviceCollection.BuildServiceProvider();
+        _serviceCollection.AddSingleton<ICustomerRepository, CustomerRepository>();
+        _serviceProvider = _serviceCollection.BuildServiceProvider();
     }
 
     [Fact]
@@ -30,14 +27,14 @@ public class CustomerRepositoryTests : TestBase
             FirstName = "A",
             LastName = "B",
         };
-        var cancellationToken = CancellationToken.None;
+
         var customerRepository = _serviceProvider.GetRequiredService<ICustomerRepository>();
 
         //Act
-        await customerRepository.Add(customer, cancellationToken);
+        await customerRepository.Add(customer, _cancellationToken);
 
         //Assert
-        var createdCustomer = await customerRepository.Get(customer.Id, cancellationToken);
+        var createdCustomer = await customerRepository.Get(customer.Id, _cancellationToken);
 
         createdCustomer.Should().NotBeNull();
         createdCustomer.Id.Should().Be(customer.Id);
@@ -56,13 +53,13 @@ public class CustomerRepositoryTests : TestBase
             FirstName = "A",
             LastName = "B",
         };
-        var cancellationToken = CancellationToken.None;
+
         var customerRepository = _serviceProvider.GetRequiredService<ICustomerRepository>();
 
-        await customerRepository.Add(customer, cancellationToken);
+        await customerRepository.Add(customer, _cancellationToken);
 
         //Assert customer created
-        var createdCustomer = await customerRepository.Get(customer.Id, cancellationToken);
+        var createdCustomer = await customerRepository.Get(customer.Id, _cancellationToken);
 
         createdCustomer.Should().NotBeNull();
         createdCustomer.Id.Should().Be(customer.Id);
@@ -70,12 +67,12 @@ public class CustomerRepositoryTests : TestBase
         createdCustomer.LastName.Should().Be(customer.LastName);
 
         //Change age
-        createdCustomer.Age = 25;
+        customer.Age = 25;
 
         //Update customer
-        await customerRepository.Update(customer, cancellationToken);
+        await customerRepository.Update(customer, _cancellationToken);
 
-        createdCustomer = await customerRepository.Get(customer.Id, cancellationToken);
+        createdCustomer = await customerRepository.Get(customer.Id, _cancellationToken);
 
         //Assert age updated
         createdCustomer.Age.Should().Be(25);
@@ -92,19 +89,19 @@ public class CustomerRepositoryTests : TestBase
             FirstName = "A",
             LastName = "B",
         };
-        var cancellationToken = CancellationToken.None;
+
         var customerRepository = _serviceProvider.GetRequiredService<ICustomerRepository>();
 
-        await customerRepository.Add(customer, cancellationToken);
+        await customerRepository.Add(customer, _cancellationToken);
 
         //Assert customer created
-        var createdCustomer = await customerRepository.Get(customer.Id, cancellationToken);
+        var createdCustomer = await customerRepository.Get(customer.Id, _cancellationToken);
 
         createdCustomer.Should().NotBeNull();
 
-        await customerRepository.Delete(customer, cancellationToken);
+        await customerRepository.Delete(customer, _cancellationToken);
 
-        createdCustomer = await customerRepository.Get(customer.Id, cancellationToken);
+        createdCustomer = await customerRepository.Get(customer.Id, _cancellationToken);
 
         createdCustomer.Should().BeNull();
     }

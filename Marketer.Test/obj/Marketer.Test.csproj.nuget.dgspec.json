@@ -211,6 +211,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Bogus": {
+              "target": "Package",
+              "version": "[35.6.1, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.8, )"
