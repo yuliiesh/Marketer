@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
-namespace Marketer.Menu;
+﻿namespace Marketer.Menu;
 
 public class MenuItem
 {

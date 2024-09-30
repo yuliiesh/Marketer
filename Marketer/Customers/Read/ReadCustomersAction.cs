@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using Marketer.ConsoleHelpers;
+﻿using Marketer.ConsoleHelpers;
 using Marketer.Data.Models;
 using Marketer.Repositories.Interfaces;
 
@@ -52,6 +47,14 @@ public class ReadCustomersAction
         do
         {
             PrintHeaderMenu();
+
+            if (customersCount == 0)
+            {
+                Console.WriteLine("There are no customers on the list.");
+                Console.WriteLine("Press any key to continue...");
+                Console.ReadKey();
+            }
+
             Console.WriteLine("Press (S) to search");
             Console.WriteLine("Press (F) to enter sort mode");
 

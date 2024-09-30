@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Marketer.Authorization.Registration;
+﻿namespace Marketer.Authorization.Registration;
 
 public class RegistrationAction
 {

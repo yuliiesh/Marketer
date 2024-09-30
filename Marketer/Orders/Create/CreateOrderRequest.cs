@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Marketer.Data.Models;
+﻿using Marketer.Data.Models;
 
 namespace Marketer.Orders.Create;
 

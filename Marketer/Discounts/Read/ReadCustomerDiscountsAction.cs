@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-using Marketer.ConsoleHelpers;
+﻿using Marketer.ConsoleHelpers;
 using Marketer.Repositories.Interfaces;
 
 namespace Marketer.Discounts.Read;

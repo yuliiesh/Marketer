@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Marketer.Customers.Create;
+﻿namespace Marketer.Customers.Create;
 
 public class CreateCustomerAction
 {

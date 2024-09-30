@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 using FluentAssertions;
 using Marketer.Data.Models;
 using Marketer.Repositories;
 using Marketer.Repositories.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
-using Xunit;
 
 namespace Marketer.Test.RepositoryTests;
 

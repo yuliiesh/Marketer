@@ -1,10 +1,5 @@
-﻿using System;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using Bogus;
+﻿using Bogus;
 using Marketer;
-using Marketer.Customers;
 using Marketer.Data;
 using Marketer.Data.Models;
 using Marketer.Menu;
@@ -52,46 +47,3 @@ catch (Exception e)
     Console.ReadKey();
 }
 
-async Task GenerateFakeCustomers(IServiceProvider provider, int count)
-{
-    var customerFaker = new Faker<CustomerModel>()
-        .RuleFor(c => c.Id, f => Guid.NewGuid())
-        .RuleFor(c => c.FirstName, f => f.Name.FirstName())
-        .RuleFor(c => c.LastName, f => f.Name.LastName())
-        .RuleFor(c => c.Age, f => f.Random.Int(18, 65));
-
-    ICustomerRepository customerRepository = provider.GetRequiredService<ICustomerRepository>();
-
-    var data = customerFaker.Generate(count);
-
-    foreach (var customer in data)
-    {
-        await customerRepository.Add(customer, CancellationToken.None);
-    }
-}
-
-async Task GenerateFakeOrders(IServiceProvider provider, int maxOrderCount, int maxProductCount)
-{
-    var customerRepository = provider.GetRequiredService<ICustomerRepository>();
-    var customers = await customerRepository.GetAll(CancellationToken.None);
-
-    var productFaker = new Faker<ProductModel>()
-        .RuleFor(p => p.Id, f => Guid.NewGuid())
-        .RuleFor(p => p.Name, f => f.Vehicle.Model())
-        .RuleFor(p => p.Price, f => f.Random.Decimal(10, 50));
-
-    var orderFaker = new Faker<CreateOrderRequest>()
-        .RuleFor(o => o.CreationDate, f => f.Date.Past())
-        .RuleFor(o => o.CustomerId, f => f.PickRandom(customers.Select(c => c.Id)))
-        .RuleFor(o => o.Products, f => productFaker.GenerateBetween(1, maxProductCount));
-
-    var orders = orderFaker.Generate(maxOrderCount);
-
-    var orderHandler = provider.GetRequiredService<IOrderHandler>();
-    var context = provider.GetRequiredService<ApplicationDbContext>();
-    foreach (var order in orders)
-    {
-        await orderHandler.CreateOrder(order, CancellationToken.None);
-        context.ChangeTracker.Clear();
-    }
-}

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using Marketer.Data;
+﻿using Marketer.Data;
 using Marketer.Data.Models;
 using Marketer.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;

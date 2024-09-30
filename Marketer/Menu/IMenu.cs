@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-
-namespace Marketer.Menu;
+﻿namespace Marketer.Menu;
 
 public interface IMenu
 {

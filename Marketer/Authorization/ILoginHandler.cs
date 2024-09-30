@@ -1,6 +1,4 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using Marketer.Authorization.Login;
+﻿using Marketer.Authorization.Login;
 using Marketer.Authorization.Registration;
 
 namespace Marketer.Authorization;

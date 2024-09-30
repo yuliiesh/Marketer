@@ -1,8 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using Marketer.Data.Models;
+﻿using Marketer.Data.Models;
 using Marketer.Orders.Create;
 using Marketer.Repositories.Interfaces;
 

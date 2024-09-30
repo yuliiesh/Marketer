@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-using Marketer.Data.Models;
+﻿using Marketer.Data.Models;
 
 namespace Marketer.Repositories.Interfaces;
 

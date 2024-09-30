@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using Bogus;
 using Marketer.Authorization;
 using Marketer.Authorization.Login;
 using Marketer.Authorization.Registration;
@@ -9,11 +6,14 @@ using Marketer.Customers;
 using Marketer.Customers.Create;
 using Marketer.Customers.Read;
 using Marketer.Customers.Select;
+using Marketer.Data;
+using Marketer.Data.Models;
 using Marketer.Discounts;
 using Marketer.Discounts.Create;
 using Marketer.Discounts.Read;
 using Marketer.Orders;
 using Marketer.Orders.Create;
+using Marketer.Repositories.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Marketer.Menu;
@@ -53,6 +53,11 @@ public class MenuBuilder
             {
                 Title = "Logout",
                 Action = () => { mainMenu.LogoutPressed += () => true; return Task.CompletedTask; }
+            },
+            new()
+            {
+                Title = "Generate test data",
+                Action = GenerateTestData
             },
             new()
             {
@@ -231,6 +236,58 @@ public class MenuBuilder
 
         Console.WriteLine("Press any key to continue");
         Console.ReadKey();
+    }
+
+    private async Task GenerateTestData()
+    {
+        var context = _serviceProvider.GetRequiredService<ApplicationDbContext>();
+        await GenerateFakeCustomers(_serviceProvider, 10);
+        context.ChangeTracker.Clear();
+        await GenerateFakeOrders(_serviceProvider, 10, 10);
+
+        async Task GenerateFakeCustomers(IServiceProvider provider, int count)
+        {
+            var customerFaker = new Faker<CustomerModel>()
+                .RuleFor(c => c.Id, f => Guid.NewGuid())
+                .RuleFor(c => c.FirstName, f => f.Name.FirstName())
+                .RuleFor(c => c.LastName, f => f.Name.LastName())
+                .RuleFor(c => c.Age, f => f.Random.Int(18, 65));
+
+            ICustomerRepository customerRepository = provider.GetRequiredService<ICustomerRepository>();
+
+            var data = customerFaker.Generate(count);
+
+            foreach (var customer in data)
+            {
+                await customerRepository.Add(customer, CancellationToken.None);
+            }
+        }
+
+        async Task GenerateFakeOrders(IServiceProvider provider, int maxOrderCount, int maxProductCount)
+        {
+            var customerRepository = provider.GetRequiredService<ICustomerRepository>();
+            var customers = await customerRepository.GetAll(CancellationToken.None);
+
+            var productFaker = new Faker<ProductModel>()
+                .RuleFor(p => p.Id, f => Guid.NewGuid())
+                .RuleFor(p => p.Name, f => f.Vehicle.Model())
+                .RuleFor(p => p.Price, f => f.Random.Decimal(10, 50));
+
+            var orderFaker = new Faker<CreateOrderRequest>()
+                .RuleFor(o => o.CreationDate, f => f.Date.Past())
+                .RuleFor(o => o.CustomerId, f => f.PickRandom(customers.Select(c => c.Id)))
+                .RuleFor(o => o.Products, f => productFaker.GenerateBetween(1, maxProductCount));
+
+            var orders = orderFaker.Generate(maxOrderCount);
+
+            var orderHandler = provider.GetRequiredService<IOrderHandler>();
+            var context = provider.GetRequiredService<ApplicationDbContext>();
+            foreach (var order in orders)
+            {
+                await orderHandler.CreateOrder(order, CancellationToken.None);
+                context.ChangeTracker.Clear();
+            }
+        }
     }
 
     #region Authorization

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Marketer.Data.Models;
+﻿namespace Marketer.Data.Models;
 
 public class OrderModel : ModelBase
 {
