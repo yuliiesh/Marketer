@@ -1,4 +1,8 @@
-﻿using Bogus;
+﻿using System;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using Bogus;
 using Marketer;
 using Marketer.Customers;
 using Marketer.Data;

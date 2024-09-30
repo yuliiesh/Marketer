@@ -1,4 +1,6 @@
-﻿namespace Marketer.Authorization.Login;
+﻿using System;
+
+namespace Marketer.Authorization.Login;
 
 public class LoginAction
 {

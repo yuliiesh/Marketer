@@ -1,4 +1,6 @@
-﻿namespace Marketer.Data.Models;
+﻿using System.Collections.Generic;
+
+namespace Marketer.Data.Models;
 
 public class CustomerModel : ModelBase
 {

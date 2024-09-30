@@ -1,4 +1,6 @@
-﻿namespace Marketer.Data.Models;
+﻿using System;
+
+namespace Marketer.Data.Models;
 
 public class ModelBase
 {

@@ -1,4 +1,8 @@
-﻿using Marketer.Authorization;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using Marketer.Authorization;
 using Marketer.Authorization.Login;
 using Marketer.Authorization.Registration;
 using Marketer.Customers;

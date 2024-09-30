@@ -1,4 +1,6 @@
-﻿namespace Marketer.Discounts.Create;
+﻿using System;
+
+namespace Marketer.Discounts.Create;
 
 public class CreateDiscountResponse
 {

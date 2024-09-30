@@ -1,4 +1,8 @@
-﻿namespace Marketer.ConsoleHelpers;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace Marketer.ConsoleHelpers;
 
 public static class TableDisplayHelper
 {
