@@ -1,8 +1,8 @@
 ﻿using System.Collections.ObjectModel;
 using FluentAssertions;
 using Marketer.Data.Models;
-using Marketer.Repositories;
-using Marketer.Repositories.Interfaces;
+using Marketer.Data.Repositories;
+using Marketer.Data.Repositories.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Marketer.Test.RepositoryTests;

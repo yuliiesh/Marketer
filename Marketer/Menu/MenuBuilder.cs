@@ -1,20 +1,22 @@
 ﻿using Bogus;
-using Marketer.Authorization;
 using Marketer.Authorization.Login;
 using Marketer.Authorization.Registration;
-using Marketer.Customers;
+using Marketer.Common.Authorization;
+using Marketer.Common.Customers;
+using Marketer.Common.Discounts;
+using Marketer.Common.Discounts.Create;
+using Marketer.Common.Orders.Create;
 using Marketer.Customers.Create;
 using Marketer.Customers.Read;
 using Marketer.Customers.Select;
 using Marketer.Data;
 using Marketer.Data.Models;
-using Marketer.Discounts;
+using Marketer.Data.Repositories.Interfaces;
 using Marketer.Discounts.Create;
 using Marketer.Discounts.Read;
-using Marketer.Orders;
 using Marketer.Orders.Create;
-using Marketer.Repositories.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
+using IOrderHandler = Marketer.Common.Orders.IOrderHandler;
 
 namespace Marketer.Menu;
 

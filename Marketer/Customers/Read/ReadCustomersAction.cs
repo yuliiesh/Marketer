@@ -1,6 +1,6 @@
 ﻿using Marketer.ConsoleHelpers;
 using Marketer.Data.Models;
-using Marketer.Repositories.Interfaces;
+using Marketer.Data.Repositories.Interfaces;
 
 namespace Marketer.Customers.Read;
 

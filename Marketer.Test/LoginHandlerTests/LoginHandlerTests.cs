@@ -1,9 +1,9 @@
 ﻿using FluentAssertions;
-using Marketer.Authorization;
-using Marketer.Authorization.Login;
+using Marketer.Common.Authorization;
+using Marketer.Common.Authorization.Login;
 using Marketer.Data.Models;
-using Marketer.Repositories;
-using Marketer.Repositories.Interfaces;
+using Marketer.Data.Repositories;
+using Marketer.Data.Repositories.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Marketer.Test.LoginHandlerTests;

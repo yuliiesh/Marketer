@@ -1,4 +1,6 @@
-﻿namespace Marketer.Authorization.Registration;
+﻿using Marketer.Common.Authorization.Register;
+
+namespace Marketer.Authorization.Registration;
 
 public class RegistrationAction
 {

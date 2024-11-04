@@ -84,7 +84,9 @@ public class ApplicationDbContext : DbContext
             .Property(user => user.Age)
             .IsRequired();
         modelBuilder.Entity<CustomerModel>()
-            .HasMany(x => x.Orders);
+            .HasMany(x => x.Orders)
+            .WithOne()
+            .HasForeignKey(x => x.CustomerModelId);
     }
 
     private static void ConfigureUserModel(ModelBuilder modelBuilder)

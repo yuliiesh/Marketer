@@ -1,4 +1,6 @@
-﻿namespace Marketer.Customers.Create;
+﻿using Marketer.Common.Customers.Create;
+
+namespace Marketer.Customers.Create;
 
 public class CreateCustomerAction
 {

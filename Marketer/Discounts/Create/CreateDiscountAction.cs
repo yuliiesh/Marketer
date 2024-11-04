@@ -1,4 +1,5 @@
-﻿using Marketer.Data.Models;
+﻿using Marketer.Common.Discounts.Create;
+using Marketer.Data.Models;
 
 namespace Marketer.Discounts.Create;
 

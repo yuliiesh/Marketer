@@ -1,5 +1,5 @@
 ﻿using Marketer.ConsoleHelpers;
-using Marketer.Repositories.Interfaces;
+using Marketer.Data.Repositories.Interfaces;
 
 namespace Marketer.Discounts.Read;
 

@@ -1,11 +1,6 @@
-﻿using Bogus;
-using Marketer;
+﻿using Marketer;
 using Marketer.Data;
-using Marketer.Data.Models;
 using Marketer.Menu;
-using Marketer.Orders;
-using Marketer.Orders.Create;
-using Marketer.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 

@@ -1,0 +1,20 @@
+﻿Marketer.Desktop
+
+
+winexe
+C#
+.cs
+C:\Users\Taras Sharko\Desktop\ProjectsSoftware\Marketer\Marketer.Desktop\obj\Debug\net8.0-windows\
+Marketer.Desktop
+none
+false
+TRACE;DEBUG;NET;NET8_0;NETCOREAPP
+C:\Users\Taras Sharko\Desktop\ProjectsSoftware\Marketer\Marketer.Desktop\App.xaml
+101845631345
+
+25548686291
+2421093867241
+MainWindow.xaml;Pages\AuthorizationPage.xaml;Pages\CreateCustomerPage.xaml;Pages\CustomerDiscountPage.xaml;Pages\HomePage.xaml;Pages\OrderCreationPage.xaml;Pages\OrderDetailsPage.xaml;Styles\Styles.xaml;Windows\CustomersWindow.xaml;Windows\DiscountEntryWindow.xaml;
+
+False
+

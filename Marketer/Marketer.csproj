@@ -18,6 +18,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Marketer.Common\Marketer.Common.csproj" />
       <ProjectReference Include="..\Marketer.Data\Marketer.Data.csproj" />
     </ItemGroup>
 

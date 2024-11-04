@@ -1,5 +1,6 @@
-﻿using Marketer.Data.Models;
-using Marketer.Repositories.Interfaces;
+﻿using Marketer.Common.Orders.Create;
+using Marketer.Data.Models;
+using Marketer.Data.Repositories.Interfaces;
 
 namespace Marketer.Orders.Create;
 

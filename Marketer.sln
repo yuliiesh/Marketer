@@ -12,6 +12,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marketer.Data", "Marketer.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marketer.Test", "Marketer.Test\Marketer.Test.csproj", "{1E81652C-6336-45A2-B1A9-AA7ACE463E42}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marketer.Desktop", "Marketer.Desktop\Marketer.Desktop.csproj", "{03C0A46A-2B41-41B3-9CA6-CD06179D1FA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marketer.Common", "Marketer.Common\Marketer.Common.csproj", "{AC48573C-0AF0-449D-AD95-4216B2C0F9F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +34,13 @@ Global
 		{1E81652C-6336-45A2-B1A9-AA7ACE463E42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E81652C-6336-45A2-B1A9-AA7ACE463E42}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E81652C-6336-45A2-B1A9-AA7ACE463E42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03C0A46A-2B41-41B3-9CA6-CD06179D1FA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03C0A46A-2B41-41B3-9CA6-CD06179D1FA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03C0A46A-2B41-41B3-9CA6-CD06179D1FA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03C0A46A-2B41-41B3-9CA6-CD06179D1FA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC48573C-0AF0-449D-AD95-4216B2C0F9F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC48573C-0AF0-449D-AD95-4216B2C0F9F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC48573C-0AF0-449D-AD95-4216B2C0F9F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC48573C-0AF0-449D-AD95-4216B2C0F9F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

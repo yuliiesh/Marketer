@@ -1,0 +1,16 @@
+C:\Users\Taras Sharko\Desktop\ProjectsSoftware\Marketer\Marketer.Common\bin\Debug\net8.0\Marketer.Common.deps.json
+C:\Users\Taras Sharko\Desktop\ProjectsSoftware\Marketer\Marketer.Common\bin\Debug\net8.0\Marketer.Common.dll
+C:\Users\Taras Sharko\Desktop\ProjectsSoftware\Marketer\Marketer.Common\bin\Debug\net8.0\Marketer.Common.pdb
+C:\Users\Taras Sharko\Desktop\ProjectsSoftware\Marketer\Marketer.Common\bin\Debug\net8.0\Marketer.Data.dll
+C:\Users\Taras Sharko\Desktop\ProjectsSoftware\Marketer\Marketer.Common\bin\Debug\net8.0\Marketer.Data.pdb
+C:\Users\Taras Sharko\Desktop\ProjectsSoftware\Marketer\Marketer.Common\obj\Debug\net8.0\Marketer.Common.csproj.AssemblyReference.cache
+C:\Users\Taras Sharko\Desktop\ProjectsSoftware\Marketer\Marketer.Common\obj\Debug\net8.0\Marketer.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Taras Sharko\Desktop\ProjectsSoftware\Marketer\Marketer.Common\obj\Debug\net8.0\Marketer.Common.AssemblyInfoInputs.cache
+C:\Users\Taras Sharko\Desktop\ProjectsSoftware\Marketer\Marketer.Common\obj\Debug\net8.0\Marketer.Common.AssemblyInfo.cs
+C:\Users\Taras Sharko\Desktop\ProjectsSoftware\Marketer\Marketer.Common\obj\Debug\net8.0\Marketer.Common.csproj.CoreCompileInputs.cache
+C:\Users\Taras Sharko\Desktop\ProjectsSoftware\Marketer\Marketer.Common\obj\Debug\net8.0\Marketer.Common.sourcelink.json
+C:\Users\Taras Sharko\Desktop\ProjectsSoftware\Marketer\Marketer.Common\obj\Debug\net8.0\Marketer.812D15A4.Up2Date
+C:\Users\Taras Sharko\Desktop\ProjectsSoftware\Marketer\Marketer.Common\obj\Debug\net8.0\Marketer.Common.dll
+C:\Users\Taras Sharko\Desktop\ProjectsSoftware\Marketer\Marketer.Common\obj\Debug\net8.0\refint\Marketer.Common.dll
+C:\Users\Taras Sharko\Desktop\ProjectsSoftware\Marketer\Marketer.Common\obj\Debug\net8.0\Marketer.Common.pdb
+C:\Users\Taras Sharko\Desktop\ProjectsSoftware\Marketer\Marketer.Common\obj\Debug\net8.0\ref\Marketer.Common.dll
